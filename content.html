@@ -3,30 +3,29 @@
 <head>  
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>YAML File Link</title>  
+    <title>Dynamic YAML File Link</title>  
 </head>  
 <body>  
-    <h1>YAML File Link</h1>  
-    <a id="yaml-link" href="#" target="_blank">Loading link...</a>  
-  
+    <h1>Dynamic YAML File Link</h1>  
+    <p>Click the link below to access the YAML file for today's date:</p>  
+    <a id="dynamic-yaml-link" href="#" target="_blank">Load Link...</a>  
+
     <script>  
-        function generateYamlLink() {  
+        function generateDynamicLink() {  
             const today = new Date();  
             const year = today.getFullYear();  
             const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-based  
             const day = String(today.getDate()).padStart(2, '0');  
-  
-            // Assuming the URL pattern is https://www.freeclashnode.com/uploads/YEAR/MONTH/1-YEARMONTHDAY.yaml  
+
             const url = `https://www.freeclashnode.com/uploads/${year}/${month}/1-${year}${month}${day}.yaml`;  
-  
-            // Update the href attribute of the link and the text content  
-            const link = document.getElementById('yaml-link');  
+
+            const link = document.getElementById('dynamic-yaml-link');  
             link.href = url;  
             link.textContent = `Download YAML File for ${year}-${month}-${day}`;  
         }  
-  
+
         // Generate the link when the page loads  
-        window.onload = generateYamlLink;  
+        window.onload = generateDynamicLink;  
     </script>  
 </body>  
 </html>
