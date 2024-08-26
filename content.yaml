@@ -3,16 +3,30 @@
 <head>  
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>Redirect Page</title>  
-    <!-- 使用meta标签进行立即重定向 -->  
-    <meta http-equiv="refresh" content="0; url=https://www.freeclashnode.com/uploads/2024/08/1-20240826.yaml">  
-    <!-- 或者使用JavaScript进行重定向 -->  
-    <!-- <script type="text/javascript">  
-        window.location.href = "https://www.freeclashnode.com/uploads/2024/08/1-20240826.yaml";  
-    </script> -->  
+    <title>YAML File Link</title>  
 </head>  
 <body>  
-    <!-- 可选：在重定向发生之前向用户显示一些内容 -->  
-    <p>Redirecting to <a href="https://www.freeclashnode.com/uploads/2024/08/1-20240826.yaml">the file</a>...</p>  
+    <h1>YAML File Link</h1>  
+    <a id="yaml-link" href="#" target="_blank">Loading link...</a>  
+  
+    <script>  
+        function generateYamlLink() {  
+            const today = new Date();  
+            const year = today.getFullYear();  
+            const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-based  
+            const day = String(today.getDate()).padStart(2, '0');  
+  
+            // Assuming the URL pattern is https://www.freeclashnode.com/uploads/YEAR/MONTH/1-YEARMONTHDAY.yaml  
+            const url = `https://www.freeclashnode.com/uploads/${year}/${month}/1-${year}${month}${day}.yaml`;  
+  
+            // Update the href attribute of the link and the text content  
+            const link = document.getElementById('yaml-link');  
+            link.href = url;  
+            link.textContent = `Download YAML File for ${year}-${month}-${day}`;  
+        }  
+  
+        // Generate the link when the page loads  
+        window.onload = generateYamlLink;  
+    </script>  
 </body>  
 </html>
